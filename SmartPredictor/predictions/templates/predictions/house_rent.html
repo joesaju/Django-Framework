@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card p-4">
+    <h3>House Rent Prediction</h3>
+    <form method="POST">{% csrf_token %}
+        <label>Square Feet:</label>
+        <input type="number" name="sqft" class="form-control mb-3" required>
+
+        <label>BHK (No. of Bedrooms):</label>
+        <input type="number" name="bhk" class="form-control mb-3" required>
+
+        <label>Location Score (1–10):</label>
+        <input type="number" name="location" class="form-control mb-3" min="1" max="10" required>
+
+        <button class="btn btn-success" type="submit">Predict Rent</button>
+    </form>
+
+    {% if rent %}
+        <div class="alert alert-success mt-3">
+            Estimated Monthly Rent: <strong>₹{{ rent }}</strong>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

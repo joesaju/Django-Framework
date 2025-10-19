@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card p-4">
+    <h3>Spam Prediction</h3>
+    <form method="POST">{% csrf_token %}
+        <textarea name="text" class="form-control mb-3" rows="3" placeholder="Enter your message here"></textarea>
+        <button class="btn btn-primary" type="submit">Predict</button>
+    </form>
+    {% if prediction %}
+        <div class="alert alert-info mt-3">
+            Result: <strong>{{ prediction }}</strong>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

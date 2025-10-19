@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h2 class="mb-4">Welcome to Smart Predictor Dashboard</h2>
+    <div class="d-flex justify-content-center gap-3">
+        <a href="{% url 'spam_predict' %}" class="btn btn-primary">Spam Prediction</a>
+        <a href="{% url 'house_rent_predict' %}" class="btn btn-success">House Rent Prediction</a>
+        <a href="{% url 'pension_predict' %}" class="btn btn-warning">Pension Prediction</a>
+    </div>
+</div>
+{% endblock %}

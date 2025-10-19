@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card p-4">
+    <h3>Pension Prediction</h3>
+    <form method="POST">{% csrf_token %}
+        <label>Current Age:</label>
+        <input type="number" name="age" class="form-control mb-3" required>
+
+        <label>Current Salary (₹):</label>
+        <input type="number" name="salary" class="form-control mb-3" required>
+
+        <button class="btn btn-warning" type="submit">Predict Pension</button>
+    </form>
+
+    {% if pension %}
+        <div class="alert alert-warning mt-3">
+            Estimated Pension Amount: <strong>₹{{ pension }}</strong>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
